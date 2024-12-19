@@ -1,37 +1,29 @@
-# コンパイルによる生成物
+# コンパイルによって生成されるファイル
 *.exe
-*.o
 *.out
-*.class
+*.o
+*.a
+*.so
+*.d
 
-# Pythonキャッシュファイル
-__pycache__/
-*.py[cod]
-
-# Javaキャッシュファイル
-*.log
-*.jar
-
-# MacOSやLinux環境で生成される不要ファイル
-.DS_Store
+# バックアップや一時ファイル
 *.swp
-*~
+*.bak
+*.tmp
 
-# 特定のエディタやIDEの設定ファイル
-.vscode/
-.idea/
-*.iml
+# OS依存の不要なファイル
+.DS_Store      # MacOS
+Thumbs.db      # Windows
 
-# コンパイルされたテストケースなど
-tests/*.out
-tests/*.log
-tests/*.diff
+# コンパイラ関連の一時ファイル
+*.class
+*.log
 
-# テストケースの大きなデータファイル（必要に応じて）
+# エディタやIDEの設定ファイル
+.vscode/        # Visual Studio Code
+.idea/          # IntelliJ IDEA
+*.iml           # IntelliJ IDEAのプロジェクトファイル
+
+# テストケースや出力ファイル（必要に応じて）
 *.in
 *.out
-*.data
-
-# その他
-*.tmp
-*.bak
