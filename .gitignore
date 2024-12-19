@@ -1,0 +1,37 @@
+# コンパイルによる生成物
+*.exe
+*.o
+*.out
+*.class
+
+# Pythonキャッシュファイル
+__pycache__/
+*.py[cod]
+
+# Javaキャッシュファイル
+*.log
+*.jar
+
+# MacOSやLinux環境で生成される不要ファイル
+.DS_Store
+*.swp
+*~
+
+# 特定のエディタやIDEの設定ファイル
+.vscode/
+.idea/
+*.iml
+
+# コンパイルされたテストケースなど
+tests/*.out
+tests/*.log
+tests/*.diff
+
+# テストケースの大きなデータファイル（必要に応じて）
+*.in
+*.out
+*.data
+
+# その他
+*.tmp
+*.bak
