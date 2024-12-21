@@ -4,7 +4,6 @@ using namespace std;
 typedef long long ll;
 const int MOD = 1e9+7;
 
-// 構造体定義
 struct HouseX {
     ll x;
     ll y;
@@ -70,13 +69,11 @@ int main(){
         
         // 移動が垂直か水平かを判定
         if(D == 'U' || D == 'D'){
-            // 垂直移動: x固定, yが変化
+
             ll fixed_x = cur_x;
             ll min_y = min(cur_y, new_y);
             ll max_y = max(cur_y, new_y);
             
-            // lower_bound と upper_bound を使って範囲を探す
-            // sorted_by_x は x, y の順でソートされている
             HouseX key_low = HouseX{fixed_x, min_y, -1};
             auto it_low = lower_bound(sorted_by_x.begin(), sorted_by_x.end(), key_low, [&](const HouseX &a, const HouseX &b) -> bool{
                 if(a.x != b.x) return a.x < b.x;
@@ -89,7 +86,6 @@ int main(){
                 return a.y < b.y;
             });
             
-            // 範囲内の家をチェック
             for(auto it = it_low; it != it_up; it++){
                 int house_id = it->id;
                 if(!passed[house_id]){
@@ -99,25 +95,21 @@ int main(){
             }
         }
         else{
-            // 水平移動: y固定, xが変化
+
             ll fixed_y = cur_y;
             ll min_x = min(cur_x, new_x);
             ll max_x = max(cur_x, new_x);
             
-            // sorted_by_y は y, x の順でソートされている
             HouseY key_low = HouseY{fixed_y, min_x, -1};
             auto it_low = lower_bound(sorted_by_y.begin(), sorted_by_y.end(), key_low, [&](const HouseY &a, const HouseY &b) -> bool{
                 if(a.y != b.y) return a.y < b.y;
                 return a.x < b.x;
             });
-            
             HouseY key_up = HouseY{fixed_y, max_x, INT32_MAX};
             auto it_up = upper_bound(sorted_by_y.begin(), sorted_by_y.end(), key_up, [&](const HouseY &a, const HouseY &b) -> bool{
                 if(a.y != b.y) return a.y < b.y;
                 return a.x < b.x;
             });
-            
-            // 範囲内の家をチェック
             for(auto it = it_low; it != it_up; it++){
                 int house_id = it->id;
                 if(!passed[house_id]){
@@ -126,14 +118,9 @@ int main(){
                 }
             }
         }
-        
-        // 現在位置を更新
         cur_x = new_x;
         cur_y = new_y;
     }
     
-    // 最終位置と通過した家の数を出力
     cout << cur_x << " " << cur_y << " " << C << "\n";
-    
-    return 0;
 }
